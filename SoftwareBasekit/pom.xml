@@ -12,12 +12,12 @@
 
     <groupId>org.littleus</groupId>
     <artifactId>SoftwareBasekit</artifactId>
-    <version>${sdk.version}</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>starter</module>
         <module>org.littleus.sdk.cache</module>
+        <module>org.littleus.sdk.config</module>
         <module>org.littleus.sdk.dao</module>
         <module>org.littleus.sdk.redis</module>
     </modules>

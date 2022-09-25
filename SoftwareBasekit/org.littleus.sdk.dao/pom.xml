@@ -12,6 +12,5 @@
 
     <groupId>org.littleus</groupId>
     <artifactId>littleus-sdk-dao</artifactId>
-    <version>${sdk.version}</version>
 
 </project>

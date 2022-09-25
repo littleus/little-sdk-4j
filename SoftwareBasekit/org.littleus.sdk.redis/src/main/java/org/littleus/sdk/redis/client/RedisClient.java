@@ -12,12 +12,13 @@ public class RedisClient {
     public Jedis getJedis() {
         JedisPool jedisPool = null;
 
-        try (Jedis jedis = jedisPool.getResource()){
+        try (Jedis jedis = jedisPool.getResource()) {
             ScanParams scanParams = new ScanParams().match("*abc*").count(10000);
             ScanResult<String> scanResult = jedis.scan("0", scanParams);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
+        return null;
     }
 }

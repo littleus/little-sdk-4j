@@ -1,4 +1,2 @@
-/SoftwareBasekit/SoftwareBasekit.iml
-/SoftwareBasekit/org.littleus.sdk.cache/littleus-sdk-cache.iml
-/SoftwareBasekit/org.littleus.sdk.redis/littleus-sdk-redis.iml
-/SoftwareBasekit/org.littleus.sdk.dao/littleus-sdk-dao.iml
+/SoftwareBasekit/targets
+/SoftwareBasekit/org.*/target/

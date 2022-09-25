@@ -12,7 +12,6 @@
 
     <groupId>org.littleus</groupId>
     <artifactId>littleus-sdk-redis</artifactId>
-    <version>${sdk.version}</version>
 
     <dependencies>
         <dependency>
