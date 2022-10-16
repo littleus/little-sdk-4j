@@ -8,6 +8,7 @@
         <groupId>org.littleus</groupId>
         <artifactId>littleus-sdk-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath></relativePath>
     </parent>
 
     <groupId>org.littleus</groupId>
@@ -15,11 +16,21 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>starter</module>
+        <module>org.littleus.sdk.aaa</module>
         <module>org.littleus.sdk.cache</module>
         <module>org.littleus.sdk.config</module>
         <module>org.littleus.sdk.dao</module>
+        <module>org.littleus.sdk.email</module>
+        <module>org.littleus.sdk.file</module>
+        <module>org.littleus.sdk.lb</module>
+        <module>org.littleus.sdk.login</module>
+        <module>org.littleus.sdk.mq</module>
+        <module>org.littleus.sdk.msm</module>
         <module>org.littleus.sdk.redis</module>
+        <module>org.littleus.sdk.schedule</module>
+        <module>org.littleus.sdk.security</module>
+        <module>org.littleus.sdk.thread</module>
+        <module>org.littleus.sdk.test</module>
     </modules>
 
 </project>

@@ -1,4 +1,4 @@
-package org.littleus.sdk.config.dynamic;
+package org.littleus.sdk.config.dynamic.benchmark;
 
 import com.netflix.config.DynamicProperty;
 import com.netflix.config.DynamicPropertyFactory;

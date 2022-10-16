@@ -1,7 +1,8 @@
-package org.littleus.sdk.config.dynamic;
+package org.littleus.sdk.config.dynamic.testcase;
 
 import com.netflix.config.DynamicProperty;
 import org.junit.jupiter.api.Test;
+import org.littleus.sdk.config.dynamic.DynamicConfig;
 
 import static org.junit.jupiter.api.Assertions.*;
 
