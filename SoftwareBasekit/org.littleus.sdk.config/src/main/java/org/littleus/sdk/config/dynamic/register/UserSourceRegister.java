@@ -38,7 +38,7 @@ public class UserSourceRegister implements ImportBeanDefinitionRegistrar {
         int initialDelayMillis = userConfig.getNumber("initialDelayMillis");
         int delayMillis = userConfig.getNumber("delayMillis");
 
-        ConfigRegisterHelper.register(source, initialDelayMillis, delayMillis);
+        SourceRegisterHelper.register(source, initialDelayMillis, delayMillis);
     }
 
     public static class RepeatableRegister implements ImportBeanDefinitionRegistrar {

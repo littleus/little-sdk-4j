@@ -3,7 +3,7 @@ package org.littleus.sdk.config.dynamic.register;
 import com.netflix.config.*;
 import org.littleus.sdk.config.dynamic.annotation.JdbcConfig;
 import org.littleus.sdk.config.dynamic.annotation.JdbcConfigs;
-import org.littleus.sdk.config.dynamic.source.jdbc.LazyJdbcSource;
+import org.littleus.sdk.config.dynamic.source.jdbc.JdbcSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
@@ -42,8 +42,8 @@ public class JdbcSourceRegister implements ImportBeanDefinitionRegistrar {
         int initialDelayMillis = jdbcConfig.getNumber("initialDelayMillis");
         int delayMillis = jdbcConfig.getNumber("delayMillis");
 
-        PolledConfigurationSource source = new LazyJdbcSource(dataSource, querySql, keyColName, valueColName);
-        ConfigRegisterHelper.register(source, initialDelayMillis, delayMillis);
+        PolledConfigurationSource source = new JdbcSource(dataSource, querySql, keyColName, valueColName);
+        SourceRegisterHelper.register(source, initialDelayMillis, delayMillis);
     }
 
     public static class RepeatableRegister implements ImportBeanDefinitionRegistrar {

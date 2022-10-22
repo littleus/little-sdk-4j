@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @author hyzhangj
  */
-public enum ScheduleFactory {
+public enum SchedulerFactory {
     INSTANCE;
     private final Map<Long, AbstractPollingScheduler> scheduleContainer = new ConcurrentHashMap<>();
 
