@@ -3,6 +3,7 @@ package org.littleus.sdk.config.dynamic.register;
 import com.netflix.config.PolledConfigurationSource;
 import org.littleus.sdk.config.dynamic.annotation.UserConfig;
 import org.littleus.sdk.config.dynamic.annotation.UserConfigs;
+import org.littleus.sdk.config.dynamic.dependency.ISourceDependency;
 import org.littleus.sdk.config.dynamic.util.BeanCreator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
@@ -29,7 +31,13 @@ public class UserSourceRegister implements ImportBeanDefinitionRegistrar {
         }
 
         AnnotationAttributes userConfig = AnnotationAttributes.fromMap(attributesMap);
-        registerUserConfig(userConfig);
+        asyncRegister(userConfig);
+    }
+
+    private static void asyncRegister(AnnotationAttributes userConfig) {
+        Class<? extends ISourceDependency> dependsOn = userConfig.getClass("dependsOn");
+        ISourceDependency dependency = BeanCreator.create(dependsOn);
+        AsyncSourceRegister.register(dependency, () -> registerUserConfig(userConfig));
     }
 
     private static void registerUserConfig(AnnotationAttributes userConfig) {
@@ -52,10 +60,7 @@ public class UserSourceRegister implements ImportBeanDefinitionRegistrar {
 
             AnnotationAttributes userConfigs = AnnotationAttributes.fromMap(attributesMap);
             AnnotationAttributes[] userConfigArr = userConfigs.getAnnotationArray("value");
-            for (AnnotationAttributes userConfig : userConfigArr) {
-                registerUserConfig(userConfig);
-            }
-
+            Arrays.stream(userConfigArr).forEach(UserSourceRegister::asyncRegister);
         }
     }
 }

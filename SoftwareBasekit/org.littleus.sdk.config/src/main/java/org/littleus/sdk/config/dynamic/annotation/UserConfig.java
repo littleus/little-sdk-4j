@@ -1,6 +1,8 @@
 package org.littleus.sdk.config.dynamic.annotation;
 
 import com.netflix.config.PolledConfigurationSource;
+import org.littleus.sdk.config.dynamic.dependency.ISourceDependency;
+import org.littleus.sdk.config.dynamic.dependency.NonDenpendency;
 import org.littleus.sdk.config.dynamic.register.JdbcSourceRegister;
 import org.littleus.sdk.config.dynamic.register.UserSourceRegister;
 import org.springframework.context.annotation.Import;
@@ -20,4 +22,6 @@ public @interface UserConfig {
     int initialDelayMillis() default 10000;
 
     int delayMillis() default 300000;
+
+    Class<? extends ISourceDependency> dependsOn() default NonDenpendency.class;
 }

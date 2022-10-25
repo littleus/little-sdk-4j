@@ -3,7 +3,9 @@ package org.littleus.sdk.config.dynamic.register;
 import com.netflix.config.*;
 import org.littleus.sdk.config.dynamic.annotation.JdbcConfig;
 import org.littleus.sdk.config.dynamic.annotation.JdbcConfigs;
+import org.littleus.sdk.config.dynamic.dependency.ISourceDependency;
 import org.littleus.sdk.config.dynamic.source.jdbc.JdbcSource;
+import org.littleus.sdk.config.dynamic.util.BeanCreator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
@@ -12,6 +14,7 @@ import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Supplier;
@@ -31,7 +34,13 @@ public class JdbcSourceRegister implements ImportBeanDefinitionRegistrar {
         }
 
         AnnotationAttributes jdbcConfig = AnnotationAttributes.fromMap(attributesMap);
-        registerJdbcConfig(jdbcConfig);
+        asyncRegister(jdbcConfig);
+    }
+
+    private static void asyncRegister(AnnotationAttributes userConfig) {
+        Class<? extends ISourceDependency> dependsOn = userConfig.getClass("dependsOn");
+        ISourceDependency dependency = BeanCreator.create(dependsOn);
+        AsyncSourceRegister.register(dependency, () -> registerJdbcConfig(userConfig));
     }
 
     private static void registerJdbcConfig(AnnotationAttributes jdbcConfig) {
@@ -57,9 +66,7 @@ public class JdbcSourceRegister implements ImportBeanDefinitionRegistrar {
 
             AnnotationAttributes jdbcConfigs = AnnotationAttributes.fromMap(attributesMap);
             AnnotationAttributes[] jdbcConfigArr = jdbcConfigs.getAnnotationArray("value");
-            for (AnnotationAttributes jdbcConfig : jdbcConfigArr) {
-                registerJdbcConfig(jdbcConfig);
-            }
+            Arrays.stream(jdbcConfigArr).forEach(JdbcSourceRegister::asyncRegister);
         }
     }
 }

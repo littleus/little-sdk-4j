@@ -1,5 +1,7 @@
 package org.littleus.sdk.config.dynamic.annotation;
 
+import org.littleus.sdk.config.dynamic.dependency.ISourceDependency;
+import org.littleus.sdk.config.dynamic.dependency.NonDenpendency;
 import org.littleus.sdk.config.dynamic.register.JdbcSourceRegister;
 import org.springframework.context.annotation.Import;
 
@@ -26,4 +28,6 @@ public @interface JdbcConfig {
     int initialDelayMillis() default 10000;
 
     int delayMillis() default 30000;
+
+    Class<? extends ISourceDependency> dependsOn() default NonDenpendency.class;
 }
