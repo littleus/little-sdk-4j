@@ -1,6 +1,7 @@
 create schema if not exists test;
 set schema test;
 
+drop table if exists test.test;
 create table test.test(
 id number(10),
 name varchar(20)

@@ -2,7 +2,7 @@ create schema if not exists test;
 set schema test;
 
 drop table if exists test.setting_info;
-create table est.setting_info(
+create table test.setting_info(
 paramKey varchar(10),
 paramValue varchar(200)
 );

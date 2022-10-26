@@ -23,6 +23,7 @@
         <module>org.littleus.sdk.email</module>
         <module>org.littleus.sdk.file</module>
         <module>org.littleus.sdk.lb</module>
+        <module>org.littleus.sdk.log</module>
         <module>org.littleus.sdk.login</module>
         <module>org.littleus.sdk.mq</module>
         <module>org.littleus.sdk.msm</module>
