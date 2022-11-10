@@ -8,9 +8,9 @@
         <groupId>org.littleus</groupId>
         <artifactId>littleus-sdk-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath/>
     </parent>
 
-    <groupId>org.littleus</groupId>
     <artifactId>littleus-sdk-aaa</artifactId>
 
 </project>

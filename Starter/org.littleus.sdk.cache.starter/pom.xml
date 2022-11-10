@@ -11,7 +11,6 @@
     </parent>
 
 
-    <groupId>org.littleus</groupId>
     <artifactId>littleus-sdk-cache-starter</artifactId>
 
 </project>

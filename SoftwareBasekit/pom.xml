@@ -11,12 +11,12 @@
         <relativePath></relativePath>
     </parent>
 
-    <groupId>org.littleus</groupId>
     <artifactId>SoftwareBasekit</artifactId>
     <packaging>pom</packaging>
 
     <modules>
         <module>org.littleus.sdk.aaa</module>
+        <module>org.littleus.sdk.benchmark</module>
         <module>org.littleus.sdk.cache</module>
         <module>org.littleus.sdk.config</module>
         <module>org.littleus.sdk.dao</module>
