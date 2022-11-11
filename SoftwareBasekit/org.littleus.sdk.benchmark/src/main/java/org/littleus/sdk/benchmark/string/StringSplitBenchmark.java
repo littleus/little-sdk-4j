@@ -1,5 +1,6 @@
 package org.littleus.sdk.benchmark.string;
 
+import org.littleus.sdk.toolkit.string.StringToolkit;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -42,35 +43,11 @@ public class StringSplitBenchmark {
 
     @Benchmark
     public void test_user_split() {
-        int[] targetSeqNo = new int[]{1, 3, 5, 7, 23, 66, 70, 77, 87, 89, 100, 101, 111, 120, 123, 124, 156, 160, 173,
-                175};
-        String[] split = split(TARGET, targetSeqNo);
+        int[] targetSeqNo = new int[]{0, 1, 3, 5, 7, 23, 66, 70, 77, 87, 89, 100, 101, 111, 120, 123, 124, 156, 160,
+                173, 175};
+        String[] split = StringToolkit.split(TARGET, targetSeqNo, '|');
         int length = split.length;
     }
 
-    private static String[] split(String target, int[] targetSeqNo) {
-        int targetLength = targetSeqNo.length;
-        String[] result = new String[targetLength];
-
-        int lastStartIndex = 0;
-        int curSeqNo = 0;
-        int curTargetIndex = 0;
-        char[] chars = target.toCharArray();
-        int length = chars.length;
-        for (int i = 0; i < length; i++) {
-            char ch = chars[i];
-            if (ch == '|') {
-                if (++curSeqNo == targetSeqNo[curTargetIndex]) {
-                    result[curTargetIndex++] = new String(chars, lastStartIndex, i - lastStartIndex);
-                    if (curTargetIndex == targetLength) {
-                        break;
-                    }
-                }
-                lastStartIndex = i + 1;
-            }
-        }
-
-        return result;
-    }
 
 }

@@ -18,10 +18,12 @@
         <module>org.littleus.sdk.aaa</module>
         <module>org.littleus.sdk.benchmark</module>
         <module>org.littleus.sdk.cache</module>
+        <module>org.littleus.sdk.concurrent</module>
         <module>org.littleus.sdk.config</module>
         <module>org.littleus.sdk.dao</module>
         <module>org.littleus.sdk.email</module>
         <module>org.littleus.sdk.file</module>
+        <module>org.littleus.sdk.gateway</module>
         <module>org.littleus.sdk.lb</module>
         <module>org.littleus.sdk.log</module>
         <module>org.littleus.sdk.login</module>
@@ -32,6 +34,7 @@
         <module>org.littleus.sdk.security</module>
         <module>org.littleus.sdk.thread</module>
         <module>org.littleus.sdk.test</module>
+        <module>org.littleus.sdk.toolkit</module>
     </modules>
 
 </project>
