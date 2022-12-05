@@ -14,16 +14,9 @@
     <artifactId>littleus-sdk-benchmark</artifactId>
     <dependencies>
         <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-core</artifactId>
-            <version>${jmh.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-generator-annprocess</artifactId>
-            <version>${jmh.version}</version>
-            <scope>compile</scope>
+            <groupId>org.littleus</groupId>
+            <artifactId>littleus-sdk-test</artifactId>
+            <version>${sdk.version}</version>
         </dependency>
         <dependency>
             <groupId>org.littleus</groupId>

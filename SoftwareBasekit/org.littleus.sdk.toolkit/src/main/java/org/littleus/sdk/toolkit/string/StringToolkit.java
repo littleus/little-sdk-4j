@@ -37,6 +37,8 @@ public class StringToolkit {
                     final char[] sub = new char[len];
                     System.arraycopy(chars, lastStartIndex, sub, 0, len);
                     result[targetIndexAsc[curTargetIndex]] = new String(sub);
+                } else {
+                    result[targetIndexAsc[curTargetIndex]] = "";
                 }
                 // 已经获取到最后一个目标字段了，剩下的不再分割
                 if (++curTargetIndex == targetLength) {

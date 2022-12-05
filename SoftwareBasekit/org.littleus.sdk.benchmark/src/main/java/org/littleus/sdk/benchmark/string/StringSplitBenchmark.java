@@ -29,9 +29,6 @@ public class StringSplitBenchmark {
      * @throws RunnerException the runner exception
      */
     public static void main(String[] args) throws RunnerException {
-        new StringSplitBenchmark().test_user_split();
-        System.out.println(1);
-
         Options options = new OptionsBuilder().include(StringSplitBenchmark.class.getSimpleName()).build();
         new Runner(options).run();
     }
@@ -45,7 +42,7 @@ public class StringSplitBenchmark {
     public void test_user_split() {
         int[] targetSeqNo = new int[]{0, 1, 3, 5, 7, 23, 66, 70, 77, 87, 89, 100, 101, 111, 120, 123, 124, 156, 160,
                 173, 175};
-        String[] split = StringToolkit.split(TARGET, targetSeqNo, '|');
+        String[] split = StringToolkit.quickSpilt(TARGET, targetSeqNo, '|');
         int length = split.length;
     }
 

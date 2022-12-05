@@ -8,6 +8,7 @@
         <groupId>org.littleus</groupId>
         <artifactId>littleus-sdk-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath/>
     </parent>
 
     <artifactId>littleus-sdk-schedule</artifactId>
