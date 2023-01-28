@@ -18,6 +18,8 @@
         <h2.version>2.1.214</h2.version>
         <junit5.version>5.9.0</junit5.version>
         <jol.version>0.16</jol.version>
+        <fastjson.versdion>2.0.20</fastjson.versdion>
+        <spring.core.version>6.0.2</spring.core.version>
     </properties>
 
 </project>

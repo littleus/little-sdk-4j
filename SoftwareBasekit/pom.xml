@@ -22,6 +22,7 @@
         <module>org.littleus.sdk.concurrent</module>
         <module>org.littleus.sdk.config</module>
         <module>org.littleus.sdk.dao</module>
+        <module>org.littleus.sdk.delegate</module>
         <module>org.littleus.sdk.email</module>
         <module>org.littleus.sdk.file</module>
         <module>org.littleus.sdk.gateway</module>
@@ -33,7 +34,6 @@
         <module>org.littleus.sdk.redis</module>
         <module>org.littleus.sdk.schedule</module>
         <module>org.littleus.sdk.security</module>
-        <module>org.littleus.sdk.thread</module>
         <module>org.littleus.sdk.test</module>
         <module>org.littleus.sdk.toolkit</module>
     </modules>
