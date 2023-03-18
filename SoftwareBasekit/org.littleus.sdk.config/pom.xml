@@ -5,16 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.littleus</groupId>
-        <artifactId>littleus-sdk-parent</artifactId>
+        <artifactId>little-sdk-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>littleus-sdk-config</artifactId>
+    <artifactId>little-sdk-config</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.littleus</groupId>
-            <artifactId>littleus-sdk-log</artifactId>
+            <artifactId>little-sdk-log</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
@@ -93,7 +93,7 @@
         </dependency>
         <dependency>
             <groupId>org.littleus</groupId>
-            <artifactId>littleus-sdk-test</artifactId>
+            <artifactId>little-sdk-test</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>

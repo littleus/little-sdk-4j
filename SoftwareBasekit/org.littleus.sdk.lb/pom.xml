@@ -6,10 +6,10 @@
 
     <parent>
         <groupId>org.littleus</groupId>
-        <artifactId>littleus-sdk-parent</artifactId>
+        <artifactId>little-sdk-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>littleus-sdk-lb</artifactId>
+    <artifactId>little-sdk-lb</artifactId>
 
 </project>
