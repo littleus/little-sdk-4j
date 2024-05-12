@@ -7,23 +7,33 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author hyzhangj
  */
 @Slf4j
 public class CsvReadUtil {
-    public static <T> List<T> readByIndex(String csvPath, Class<T> mappingBean, boolean skipHeader) {
+    public static <T> Stream<T> readAsStream(String csvPath, Class<T> mappingBean, String profile) {
         try (Reader reader = new FileReader(csvPath); BufferedReader bufferedReader = new BufferedReader(reader)) {
-            if (skipHeader) {
-                bufferedReader.readLine();
-            }
-            return new CsvToBeanBuilder<T>(bufferedReader).withType(mappingBean).build().parse();
+            return new CsvToBeanBuilder<T>(bufferedReader).withType(mappingBean).withProfile(profile).build().stream();
         } catch (IOException e) {
-            log.error("read by index error", e);
-            return Collections.emptyList();
+            log.error("read csv error", e);
+            return Stream.empty();
         }
+    }
+
+    public static <T> Stream<T> readAsStream(String csvPath, Class<T> mappingBean) {
+        return readAsStream(csvPath, mappingBean, "");
+    }
+
+    public static <T> List<T> readAsList(String csvPath, Class<T> mappingBean, String profile) {
+        return readAsStream(csvPath, mappingBean, profile).collect(Collectors.toList());
+    }
+
+    public static <T> List<T> readAsList(String csvPath, Class<T> mappingBean) {
+        return readAsStream(csvPath, mappingBean).collect(Collectors.toList());
     }
 }

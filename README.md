@@ -1,2 +1,3 @@
-# ls-sdk-4j
-Software Development Kit For Java
+# little-sdk-4j
+
+a little software development kit for java.
